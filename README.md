@@ -1,4 +1,4 @@
-# Calculating Number &pi;
+# Calculating Number &pi; - work in progress
 
 Calculation of &pi; in this project is proced using random generated numbers and relationship between field of a circle and a square. Knowing the fact that circle inscribed in square share the same length of diameter as the side of a square we can derive the formula of PI number which is:
 
