@@ -27,7 +27,6 @@ namespace CalculatingPI
         Points point;
         public static Image myImageProperties { get; set; }
 
-
         public static double myImageWidth { get; set; }
         public static double myImageHeigth { get; set; }
 
