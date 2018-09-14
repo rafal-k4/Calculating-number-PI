@@ -70,6 +70,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CalcPI.cs" />
     <Compile Include="DrawingHelper.cs" />
     <Compile Include="RandomNumbers.cs" />
     <Page Include="MainWindow.xaml">

@@ -54,7 +54,7 @@ namespace CalculatingPI
             dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Tick += dispatchetTimer_Tick; //adding method to be evoked every "interval" time
             dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 5); //interval set to 20 milisecond
-
+            
             startingCollectionOfPoints(1000); //this value sets the amount of dots rendered on screen per one timer tick.
         }
 
@@ -76,9 +76,13 @@ namespace CalculatingPI
 
                 DrawingHelper.RenderOnImage(myImage, point);
 
+                //TextBoxShowingValue.Text = CalcPI.CalculateNumberPI(point, myImage.Width / 2).ToString();
+                CalcPI.CalculateNumberPI(point, myImage.Width / 2);
 
             }
 
+            TextBoxShowingValue.Text = CalcPI.bestValueOfPI.ToString();
+            
             DrawingHelper.DrawRectangleAndCircle(myImage);
 
         }
