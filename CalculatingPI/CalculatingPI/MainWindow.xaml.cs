@@ -25,10 +25,11 @@ namespace CalculatingPI
 
         DispatcherTimer dispatcherTimer; //timer periodically evoking sets of function
         List<Points> points = new List<Points>();
-        public static Image myImageProperties { get; set; }
+
         public static int myImageWidth { get; set; }
         public static int myImageHeigth { get; set; }
 
+        public static Image myImageProperties { get; set; }
 
         public MainWindow()
         {
@@ -52,9 +53,9 @@ namespace CalculatingPI
             //setting timer
             dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Tick += dispatchetTimer_Tick; //adding method to be evoked every "interval" time
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 20); //interval set to 20 milisecond
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 5); //interval set to 20 milisecond
 
-            startingCollectionOfPoints(1000);
+            startingCollectionOfPoints(1000); //this value sets the amount of dots rendered on screen per one timer tick.
         }
 
         private void startingCollectionOfPoints(int AmountOfObjectInCollection)
@@ -69,35 +70,17 @@ namespace CalculatingPI
         {
             foreach (Points point in points)
             {
+
                 point.settingRandomCoordinates(RandomNumbers.GetRandom(myImage.Width), RandomNumbers.GetRandom(myImage.Height));
                 point.CalculateDistanceFromMiddle(myImage.Width / 2, myImage.Height / 2);
 
                 DrawingHelper.RenderOnImage(myImage, point);
+
+
             }
 
-            
+            DrawingHelper.DrawRectangleAndCircle(myImage);
+
         }
-
-       
     }
-
-    //class CalculationAndRender
-    //{
-
-    //    internal static void DoCalculationAndRenderGraphic(int AmountPerTick)
-    //    {
-    //        using (DrawingContext dc = DrawingHelper.dVisual.RenderOpen())
-    //        {
-    //            for (int i = 0; i < AmountPerTick; i++)
-    //            {
-    //                dc.DrawEllipse(DrawingHelper.MyBlueBrush, null, 
-    //                    new Point(RandomNumbers.GetRandom(MainWindow.myImageWidth), RandomNumbers.GetRandom(MainWindow.myImageHeigth)), 1, 1);
-
-    //                MainWindow.myImageProperties.Source = DrawingHelper.createBitmap();
-    //            }
-    //        }
-
-
-    //    }
-    //}
 }

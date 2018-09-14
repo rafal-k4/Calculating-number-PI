@@ -9,7 +9,6 @@ namespace CalculatingPI
         
         static public double GetRandom(double maxValue) // returns double random value, where max value is given by user
         {
-            
             return rand.NextDouble() * maxValue;
         }
     }

@@ -17,6 +17,7 @@ namespace CalculatingPI
         static Brush myGreenBrush = Brushes.Green;
         static Brush myBlueBrush = Brushes.Blue;
         static Pen myBlackPen = new Pen(Brushes.Black, 5);
+        
 
         public static DrawingVisual dVisual { get { return _dVisual; } }
         public static Brush MyGreenBrush { get => myGreenBrush; }
@@ -24,9 +25,9 @@ namespace CalculatingPI
         public static Pen MyBlackPen { get => myBlackPen; }
 
         private static Point myPoint = new Point();
-        
 
-        public static RenderTargetBitmap createBitmap()
+
+        private static RenderTargetBitmap createBitmap()
         {
             rtb.Render(dVisual);
             return rtb;
@@ -38,15 +39,33 @@ namespace CalculatingPI
             {
                 myPoint.X = point.coordinateX;
                 myPoint.Y = point.coordinateY;
-                dc.DrawEllipse(MyBlueBrush, null,
-                   myPoint, 1, 1);
-                //new Point(point.coordinateX, point.coordinateY), 1, 1);
+
+                if(point.distance < image.Width/2)
+                {
+                    dc.DrawEllipse(MyGreenBrush, null, myPoint, 1, 1);
+                }
+                else
+                {
+                    dc.DrawEllipse(MyBlueBrush, null, myPoint, 1, 1);
+                }
 
                 image.Source = createBitmap();
 
             }
         }
 
+        public static void DrawRectangleAndCircle(Image image)
+        {
+            using (DrawingContext dc = dVisual.RenderOpen())
+            {
+                myPoint.X = image.Width/2;
+                myPoint.Y = image.Height/2;
+                dc.DrawEllipse(null, myBlackPen, myPoint, image.Width / 2, image.Height / 2);
+                dc.DrawRectangle(null, myBlackPen, new Rect(0, 0, image.Width, image.Height));
+
+                image.Source = createBitmap();
+            }
+        }
     }
 
 
