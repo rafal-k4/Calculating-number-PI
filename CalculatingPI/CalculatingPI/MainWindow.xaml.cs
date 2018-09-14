@@ -24,12 +24,9 @@ namespace CalculatingPI
     {
 
         DispatcherTimer dispatcherTimer; //timer periodically evoking sets of function
-        Points point;
+        List<Points> points = new List<Points>();
         public static Image myImageProperties { get; set; }
 
-
-        public static double myImageWidth { get; set; }
-        public static double myImageHeigth { get; set; }
 
         public MainWindow()
         {
@@ -46,8 +43,6 @@ namespace CalculatingPI
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //getting heigth and width of Image Control
-            myImageWidth = myImage.Width;
-            myImageHeigth = myImage.Height;
             myImageProperties = myImage;
 
             //setting timer
@@ -55,26 +50,40 @@ namespace CalculatingPI
             dispatcherTimer.Tick += dispatchetTimer_Tick; //adding method to be evoked every "interval" time
             dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 20); //interval set to 20 milisecond
 
-            point = new Points();
+            startingCollectionOfPoints(1000);
+        }
+
+        private void startingCollectionOfPoints(int AmountOfObjectInCollection)
+        {
+            for (int i = 0; i < AmountOfObjectInCollection; i++)
+            {
+                points.Add(new Points());
+            }
         }
 
         private void dispatchetTimer_Tick(object sender, EventArgs e)
         {
-            //CalculationAndRender.DoCalculationAndRenderGraphic(100);
+            foreach (Points point in points)
+            {
+                point.settingRandomCoordinates(RandomNumbers.GetRandom(myImage.Width), RandomNumbers.GetRandom(myImage.Height));
+                point.CalculateDistanceFromMiddle(myImage.Width / 2, myImage.Height / 2);
 
-            MultipleCalculationPerTick(1000);
+                DrawingHelper.RenderOnImage(myImage, point);
+            }
+
+            //MultipleCalculationPerTick(1000);
 
             //point.settingRandomCoordinates(RandomNumbers.GetRandom(myImage.Width),RandomNumbers.GetRandom(myImage.Height)); //width and height supposed to be same since we are dealing with circle inscribed in square
             //point.CalculateDistanceFromMiddle(myImage.Width / 2, myImage.Height / 2);
         }
 
-        private void MultipleCalculationPerTick(int AmountPerTick)
-        {
-            for (int i = 0; i < AmountPerTick; i++)
-            {
-                DrawingHelper.RenderOnImage(myImage);
-            }
-        }
+        //private void MultipleCalculationPerTick(int AmountPerTick)
+        //{
+        //    for (int i = 0; i < AmountPerTick; i++)
+        //    {
+        //        DrawingHelper.RenderOnImage(myImage);
+        //    }
+        //}
     }
 
     //class CalculationAndRender

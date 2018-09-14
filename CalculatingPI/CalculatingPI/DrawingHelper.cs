@@ -23,23 +23,27 @@ namespace CalculatingPI
         public static Brush MyBlueBrush { get => myBlueBrush; }
         public static Pen MyBlackPen { get => myBlackPen; }
 
+        private static Point myPoint = new Point();
+        
+
         public static RenderTargetBitmap createBitmap()
         {
             rtb.Render(dVisual);
             return rtb;
         }
 
-        public static void RenderOnImage(Image image)
+        public static void RenderOnImage(Image image, Points point)
         {
             using (DrawingContext dc = dVisual.RenderOpen())
             {
-                //for (int i = 0; i < 1000; i++)
-                //{
-                    dc.DrawEllipse(MyBlueBrush, null,
-                        new Point(RandomNumbers.GetRandom(MainWindow.myImageWidth), RandomNumbers.GetRandom(MainWindow.myImageHeigth)), 1, 1);
+                myPoint.X = point.coordinateX;
+                myPoint.Y = point.coordinateX;
+                dc.DrawEllipse(MyBlueBrush, null,
+                   myPoint, 1, 1);
+                //new Point(point.coordinateX, point.coordinateY), 1, 1);
 
-                    image.Source = createBitmap();
-                //}
+                image.Source = createBitmap();
+
             }
         }
 
