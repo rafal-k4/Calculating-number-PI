@@ -37,7 +37,7 @@ namespace CalculatingPI
             using (DrawingContext dc = dVisual.RenderOpen())
             {
                 myPoint.X = point.coordinateX;
-                myPoint.Y = point.coordinateX;
+                myPoint.Y = point.coordinateY;
                 dc.DrawEllipse(MyBlueBrush, null,
                    myPoint, 1, 1);
                 //new Point(point.coordinateX, point.coordinateY), 1, 1);

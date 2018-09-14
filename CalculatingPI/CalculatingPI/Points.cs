@@ -18,10 +18,10 @@ namespace CalculatingPI
                 + (coordinateY - middlePoint_Y) * (coordinateY - middlePoint_Y));
         }
 
-        public void settingRandomCoordinates(double randomX, double randomY)
+        public void settingRandomCoordinates(double valueX, double valueY)
         {
-            coordinateX = randomX;
-            coordinateY = randomY;
+            coordinateX = valueX;
+            coordinateY = valueY;
         }
     }
 }

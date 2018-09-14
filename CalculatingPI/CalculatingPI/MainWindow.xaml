@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CalculatingPI"
         xmlns:Properties="clr-namespace:CalculatingPI.Properties" x:Class="CalculatingPI.MainWindow"
         mc:Ignorable="d"
-        Title="Calculating number PI" Height="889.568" Width="790"
+        Title="Calculating number PI" Height="889.568" Width="800"
         Loaded="Window_Loaded"
         >
     <Grid Margin="0,0,2,0">
@@ -14,7 +14,7 @@
         <TextBox HorizontalAlignment="Left" Height="23" Margin="278,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="351"/>
         <Label Content="Value of PI:" HorizontalAlignment="Left" Margin="188,10,0,0" VerticalAlignment="Top"/>
         <Button Content="About" HorizontalAlignment="Left" Margin="689,824,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.174,0.018"/>
-        <Image x:Name="myImage" Height="760" Margin="0,57,10,0" Stretch="None" VerticalAlignment="Top" HorizontalAlignment="Right" Width="760" />
+        <Image x:Name="myImage" Height="760" Margin="10,57,0,0" Stretch="None" VerticalAlignment="Top" HorizontalAlignment="Left" Width="760" />
 
     </Grid>
 </Window>

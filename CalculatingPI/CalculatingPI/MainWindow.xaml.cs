@@ -26,6 +26,8 @@ namespace CalculatingPI
         DispatcherTimer dispatcherTimer; //timer periodically evoking sets of function
         List<Points> points = new List<Points>();
         public static Image myImageProperties { get; set; }
+        public static int myImageWidth { get; set; }
+        public static int myImageHeigth { get; set; }
 
 
         public MainWindow()
@@ -43,7 +45,9 @@ namespace CalculatingPI
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //getting heigth and width of Image Control
-            myImageProperties = myImage;
+            myImageHeigth = (int)myImage.Height;
+            myImageWidth = (int)myImage.Width;
+            //myImageProperties = myImage;
 
             //setting timer
             dispatcherTimer = new DispatcherTimer();
@@ -71,24 +75,15 @@ namespace CalculatingPI
                 DrawingHelper.RenderOnImage(myImage, point);
             }
 
-            //MultipleCalculationPerTick(1000);
-
-            //point.settingRandomCoordinates(RandomNumbers.GetRandom(myImage.Width),RandomNumbers.GetRandom(myImage.Height)); //width and height supposed to be same since we are dealing with circle inscribed in square
-            //point.CalculateDistanceFromMiddle(myImage.Width / 2, myImage.Height / 2);
+            
         }
 
-        //private void MultipleCalculationPerTick(int AmountPerTick)
-        //{
-        //    for (int i = 0; i < AmountPerTick; i++)
-        //    {
-        //        DrawingHelper.RenderOnImage(myImage);
-        //    }
-        //}
+       
     }
 
     //class CalculationAndRender
     //{
-      
+
     //    internal static void DoCalculationAndRenderGraphic(int AmountPerTick)
     //    {
     //        using (DrawingContext dc = DrawingHelper.dVisual.RenderOpen())
@@ -101,8 +96,8 @@ namespace CalculatingPI
     //                MainWindow.myImageProperties.Source = DrawingHelper.createBitmap();
     //            }
     //        }
-                
-            
+
+
     //    }
     //}
 }
