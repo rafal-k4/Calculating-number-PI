@@ -48,7 +48,6 @@ namespace CalculatingPI
             //getting heigth and width of Image Control
             myImageHeigth = (int)myImage.Height;
             myImageWidth = (int)myImage.Width;
-            //myImageProperties = myImage;
 
             //setting timer
             dispatcherTimer = new DispatcherTimer();
@@ -85,6 +84,14 @@ namespace CalculatingPI
             
             DrawingHelper.DrawRectangleAndCircle(myImage);
 
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Calculating value of PI in this project is made by counting dots randomly placed in circle and square."
+                +Environment.NewLine +"Knowing the fact that circle inscribed in square share the same length of diameter as the side of a square we can derive the formula of PI." 
+                + Environment.NewLine +"Based on this formula, we can calculate the approximate value of the number PI" 
+                + Environment.NewLine +"Accuracy of calculated PI number strictly depends on randomness of the generated numbers.");
         }
     }
 }

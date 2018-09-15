@@ -25,6 +25,7 @@ namespace CalculatingPI
 
         }
 
+        //searching for most accurate value of PI
         private static void CheckBestValueOfPie(double valueOfPI)
         {
             double approximationErrorOfActualPI = Math.Abs(Math.PI - valueOfPI);
@@ -32,7 +33,7 @@ namespace CalculatingPI
 
             if (approximationErrorOfActualPI < approximationErrorOfBestPI)
             {
-                bestValueOfPI = valueOfPI;
+                bestValueOfPI = valueOfPI; 
             }
         }
     }
