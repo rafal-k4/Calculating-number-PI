@@ -39,7 +39,19 @@ namespace CalculatingPI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            dispatcherTimer.Start();
+            if (dispatcherTimer.IsEnabled)
+            {
+                dispatcherTimer.Stop();
+                myStartStopButton.Content = "Start";
+            }
+            else
+            {
+                dispatcherTimer.Start();
+                myStartStopButton.Content = "Stop";
+            }
+
+
+
         }
 
 
