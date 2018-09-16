@@ -53,8 +53,11 @@ namespace CalculatingPI
             dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Tick += dispatchetTimer_Tick; //adding method to be evoked every "interval" time
             dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 5); //interval set to 20 milisecond
-            
+
             startingCollectionOfPoints(1000); //this value sets the amount of dots rendered on screen per one timer tick.
+
+            //screening value of number PI
+            TextBoxShowingValue.Text = Math.PI.ToString(); //value of PI with double precision
         }
 
         private void startingCollectionOfPoints(int AmountOfObjectInCollection)
@@ -75,13 +78,13 @@ namespace CalculatingPI
 
                 DrawingHelper.RenderOnImage(myImage, point);
 
-                //TextBoxShowingValue.Text = CalcPI.CalculateNumberPI(point, myImage.Width / 2).ToString();
                 CalcPI.CalculateNumberPI(point, myImage.Width / 2);
 
             }
 
-            TextBoxShowingValue.Text = CalcPI.bestValueOfPI.ToString();
-            
+            CalcPI.ScreenValueOfPI(ref myTextBlock);
+            TextBoxCoverValue.Text = (CalcPI.indexOfSameDigits - 2).ToString();
+
             DrawingHelper.DrawRectangleAndCircle(myImage);
 
         }
@@ -89,9 +92,9 @@ namespace CalculatingPI
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Calculating value of PI in this project is made by counting dots randomly placed in circle and square."
-                +Environment.NewLine +"Knowing the fact that circle inscribed in square share the same length of diameter as the side of a square we can derive the formula of PI." 
-                + Environment.NewLine +"Based on this formula, we can calculate the approximate value of the number PI" 
-                + Environment.NewLine +"Accuracy of calculated PI number strictly depends on randomness of the generated numbers.");
+                + Environment.NewLine + "Knowing the fact that circle inscribed in square share the same length of diameter as the side of a square we can derive the formula of PI."
+                + Environment.NewLine + "Based on this formula, we can calculate the approximate value of the number PI"
+                + Environment.NewLine + "Accuracy of calculated PI number strictly depends on randomness of the generated numbers.");
         }
     }
 }

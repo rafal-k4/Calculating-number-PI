@@ -6,15 +6,21 @@
         xmlns:local="clr-namespace:CalculatingPI"
         xmlns:Properties="clr-namespace:CalculatingPI.Properties" x:Class="CalculatingPI.MainWindow"
         mc:Ignorable="d"
-        Title="Calculating number PI" Height="889.568" Width="800"
+        Title="Calculating number PI" Height="909.568" Width="800"
         Loaded="Window_Loaded"
         >
     <Grid Margin="0,0,2,0">
         <Button Content="Start" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" Click="Button_Click"/>
-        <TextBox Name="TextBoxShowingValue" HorizontalAlignment="Left" Height="23" Margin="278,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="351"/>
-        <Label Content="Value of PI:" HorizontalAlignment="Left" Margin="188,10,0,0" VerticalAlignment="Top"/>
-        <Button Content="About" HorizontalAlignment="Left" Margin="689,824,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.174,0.018" Click="Button_Click_1"/>
-        <Image x:Name="myImage" Height="760" Margin="10,57,0,0" Stretch="None" VerticalAlignment="Top" HorizontalAlignment="Left" Width="760" />
+        <TextBox Name="TextBoxShowingValue" HorizontalAlignment="Left" Height="23" Margin="276,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
+        <Label Content="Value of PI:" HorizontalAlignment="Left" Margin="189,47,0,0" VerticalAlignment="Top"/>
+        <Button Content="About" HorizontalAlignment="Left" Margin="695,849,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.174,0.018" Click="Button_Click_1"/>
+        <Image x:Name="myImage" Height="760" Margin="10,78,0,0" Stretch="None" VerticalAlignment="Top" HorizontalAlignment="Left" Width="760" />
+        <Label Content="Approximated value of PI:" HorizontalAlignment="Left" Margin="112,10,0,0" VerticalAlignment="Top"/>
+        <Border BorderBrush="#FFABADB3" BorderThickness="1" Margin="276,12,0,0" Width="170" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock x:Name="myTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,0,0,0" Height="23" Width="170" Foreground="Black" Background="White"/>
+        </Border>
+        <Label Content="How many decimal places are accurate: " HorizontalAlignment="Left" Margin="467,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBoxCoverValue" HorizontalAlignment="Left" Height="23" Margin="693,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center"/>
 
     </Grid>
 </Window>
